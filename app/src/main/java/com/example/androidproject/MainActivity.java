@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button musi =(Button)findViewById(R.id.button);
+        musi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Aspire.class);
+                startActivity(intent);
+            }
+        });
 
         }
     public void sendMessage (View view) {
@@ -37,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
 
-            case R.id.showvideo:
+            case R.id.showmusic:
                 startActivity(new Intent(this,Aspire.class));
             return true;
 
-            case R.id.showaudio:
-                startActivity(new Intent(this,MainActivity.class));
+            case R.id.showgallery:
+                startActivity(new Intent(this,Show.class));
                 return true;
 
                 default:
