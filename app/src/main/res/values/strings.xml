@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidProject</string>
+    <string name="password">My password</string>
 </resources>
