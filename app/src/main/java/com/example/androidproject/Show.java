@@ -11,11 +11,12 @@ import java.io.InputStream;
 
 public class Show extends AppCompatActivity {
 Button btn;
+TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
-        TextView txtview=findViewById(R.id.textV);
+        textView=findViewById(R.id.textV);
         btn=(Button)findViewById(R.id.buttonc);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,7 @@ Button btn;
         ex.printStackTrace();
 
                 }
+                textView.setText((CharSequence) text);
             }
         });
     }
