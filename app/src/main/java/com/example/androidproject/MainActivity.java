@@ -30,8 +30,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button listviewbutton=(Button)findViewById(R.id.listviewbtn);
+        listviewbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ListViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button C=(Button)findViewById(R.id.cprogrambtn);
 
-        }
+     C.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this,Show.class);
+        startActivity(intent);
+    }
+});
+
+        Button ryclebutton=(Button)findViewById(R.id.rycle);
+     ryclebutton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent intent=new Intent(MainActivity.this,RecyclerActivity.class);
+             startActivity(intent);
+         }
+     });
+    }
     public void sendMessage (View view) {
         EditText message = (EditText) findViewById(R.id.message);
         Intent intent = new Intent(this, DisplayMessageActivity.class);
@@ -61,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.showgallery:
-                    startActivity(new Intent(this, Show.class));
+                    startActivity(new Intent(this, Screen.class));
                     return true;
 
 
