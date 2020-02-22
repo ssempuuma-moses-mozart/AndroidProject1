@@ -11,11 +11,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+      /*  super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
         Intent intent = getIntent();String message = intent.getStringExtra("MESSAGE");
-        TextView messageView =(TextView)findViewById(R.id.messageTextView);	messageView.setText(message);
+        TextView messageView =(TextView)findViewById(R.id.sendButton);	messageView.setText(message);
+
+
+       */
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display_message);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("MESSAGE");
+        TextView messageView =	(TextView)findViewById(R.id.messageTextView);
+        messageView.setText(message);
     }
 
     public void onClose(View view) {

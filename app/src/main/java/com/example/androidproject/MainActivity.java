@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
     public void sendMessage (View view) {
-        EditText message = (EditText)findViewById(R.id.message);
+        EditText message = (EditText) findViewById(R.id.message);
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         intent.putExtra("MESSAGE", message.getText().toString());
-        startActivity(intent); message.setText(""); }
+        startActivity(intent);
+        message.setText("");
 
+
+    }
 
         public boolean onCreateOptionsMenu(Menu menu){
             MenuInflater inflater=getMenuInflater();
@@ -42,24 +48,56 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         }
-        public boolean onOPtionsItemSelected(MenuItem item){
 
-        switch (item.getItemId()){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-            case R.id.showmusic:
-                startActivity(new Intent(this,Aspire.class));
-            return true;
 
-            case R.id.showgallery:
-                startActivity(new Intent(this,Show.class));
-                return true;
+
+            switch (item.getItemId()) {
+
+                case R.id.showmusic:
+                    startActivity(new Intent(this, Display.class));
+                    return true;
+
+                case R.id.showgallery:
+                    startActivity(new Intent(this, Show.class));
+                    return true;
+
 
                 default:
-                    return super.onContextItemSelected(item);
+
+                    return super.onOptionsItemSelected(item);
+
         }
-        }
 
 
 
 
+    }
 }
+
+
+
+          /*  int id = item.getItemId();
+            if (id == R.id.showmusic) {
+
+                Intent myintent=new Intent(MainActivity.this,Display.class);
+
+                startActivity(myintent);
+                return true;
+            }
+
+
+            if (id == R.id.showgallery) {
+
+                Intent myintent=new Intent(MainActivity.this,Show.class);
+
+                startActivity(myintent);
+                return true;
+            }
+
+            return super.onContextItemSelected(item);
+        }*/
+
+
