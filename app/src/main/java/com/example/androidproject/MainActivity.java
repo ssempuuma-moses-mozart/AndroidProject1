@@ -20,15 +20,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-    private ArrayList<String> nName=new ArrayList<>();
-    private ArrayList<String> mimageulrs=new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
+
+
+
         setContentView(R.layout.activity_main);
         Button musi =(Button)findViewById(R.id.button);
         musi.setOnClickListener(new View.OnClickListener() {
@@ -56,15 +55,16 @@ public class MainActivity extends AppCompatActivity {
     }
 });
 
-//        Button ryclebutton=(Button)findViewById(R.id.rycle);
-//     ryclebutton.setOnClickListener(new View.OnClickListener() {
-//         @Override
-//         public void onClick(View v) {
-//             Intent intent=new Intent(MainActivity.this,RecyclerActivity.class);
-//             startActivity(intent);
-//         }
-//     });
+      Button ryclebutton=(Button)findViewById(R.id.rycle);
+     ryclebutton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent intent=new Intent(MainActivity.this,RecyclerViewActivity.class);
+             startActivity(intent);
+         }
+     });
     }
+
 
     public void sendMessage (View view) {
         EditText message = (EditText) findViewById(R.id.message);

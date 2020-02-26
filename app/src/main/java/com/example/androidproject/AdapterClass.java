@@ -6,111 +6,75 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder>{
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class AdapterClass extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
 
     private static final String TAG = "AdapterClass";
-
-    private ArrayList<String> imagenames=new ArrayList<>();
+    private ArrayList<String> mimagenames=new ArrayList<>();
     private ArrayList<String> mimages=new ArrayList<>();
     private Context mContext;
 
-    public AdapterClass( Context mContext,ArrayList<String> imagenames, ArrayList<String> mimages) {
-        this.imagenames = imagenames;
-        this.mimages = mimages;
-        this.mContext = mContext;
+    public AdapterClass( Context Context,ArrayList<String> imagenames, ArrayList<String> images) {
+        this.mimagenames = imagenames;
+        this.mimages = images;
+        this.mContext = Context;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_list_view,parent,false);
         ViewHolder holder=new ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Log.d(TAG, "onBindViewHolder: called.");
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: called");
+        Glide.with(mContext)
+                .asBitmap()
+                .load(mimages.get(position))
+                //into
+               ;
+
 
 
     }
 
     @Override
     public int getItemCount() {
-        return imagenames.size();
+        return mimagenames.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-         ImageView imageView;
-         TextView textView;
-         TextView textView2;
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ViewHolder(View view){
+        CircleImageView image;
+        TextView imagename;
+        RelativeLayout relative;
 
-
-            super(view);
-            imageView=view.findViewById(R.id.imageView);
-            textView=view.findViewById(R.id.textView);
-            textView2=view.findViewById(R.id.textView2);
-
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            image=itemView.findViewById(R.id.image);
+            imagename=itemView.findViewById(R.id.image_name);
+            relative=itemView.findViewById(R.id.relative);
 
         }
-
-//    private List<ModelClass> modelClassList;
-//
-//    public AdapterClass(List<ModelClass> modelClassList) {
-//        this.modelClassList = modelClassList;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        //View view= LayoutInflater.from(ViewGroup.getcontext()).inflate()
-//        return null;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return 0;
-//    }
-//
-//    class Viewholder extends RecyclerView.ViewHolder{
-//
-//        private ImageView image_View;
-//        private TextView textView;
-//        private TextView textView2;
-//
-//
-//        public Viewholder(View itemView){
-//            super(itemView);
-//
-//            image_View=itemView.findViewById(R.id.imageView);
-//            textView=itemView.findViewById(R.id.textView);
-//             textView2=itemView.findViewById(R.id.textView2);
-//
-//
-//        }
-//        private void setDate(int imageView, String textView, String textView2){
-//
-//
-//        }
-//    }
-
-
     }
+
+
+
 }
