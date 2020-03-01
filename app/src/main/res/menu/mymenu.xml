@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/showmusic" android:title="Display"></item>
-    <item android:id="@+id/showgallery" android:title="Gallery"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/callPhone"
+        android:title="Call"
+        app:showAsAction="always"
+        android:icon="@drawable/call_24dp"
+
+        />
+    <item android:id="@+id/showmusic"
+        android:title="Display"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/video_24dp"
+        app:showAsAction="always"/>
+    <item android:id="@+id/showgallery"
+        android:title="Gallery"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/folder_24dp"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/show"
+        android:title="Show"
+        android:iconTint="@android:color/holo_orange_dark"
+        android:icon="@drawable/folder_24dp"
+        app:showAsAction="always"
+        />
+
+
+
 </menu>

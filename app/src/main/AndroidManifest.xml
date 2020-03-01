@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidproject">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,8 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".AndroidProject"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerViewActivity"></activity>
+        <activity android:name=".UserRecycler"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="Home Activity"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".ListViewActivity" />
         <activity android:name=".Display" />
         <activity android:name=".Show" />
@@ -24,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
