@@ -91,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case  R.id.showmusic:
                 startActivity(new Intent(this, Screen.class));
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setData(Uri.parse("mailto"));
+                String to []={"ssempuumamosesm@gmail.com"};
+                intent.putExtra(Intent.EXTRA_EMAIL,to);
+                intent.putExtra(Intent.EXTRA_SUBJECT,"hey");
+                intent.putExtra(Intent.EXTRA_TEXT,"design");
+                intent.setType("message/rfc822");
+                startActivity(intent);
+
+                //takes you to the website
+               // Intent intentObj = new Intent(Intent.ACTION_VIEW);
+                //intentObj.setData(Uri.parse("https://www.abhiandroid.com"));
+              //  startActivity(intentObj);
                 return true;
             case R.id.show:
                 startActivity(new Intent(this, ListViewActivity.class));

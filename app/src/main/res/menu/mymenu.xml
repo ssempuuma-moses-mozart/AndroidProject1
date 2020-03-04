@@ -11,7 +11,7 @@
     <item android:id="@+id/showmusic"
         android:title="Display"
         android:iconTint="@android:color/holo_orange_dark"
-        android:icon="@drawable/video_24dp"
+        android:icon="@drawable/email"
         app:showAsAction="always"/>
     <item android:id="@+id/showgallery"
         android:title="Gallery"
