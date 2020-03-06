@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -16,15 +19,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import static android.os.Build.VERSION_CODES.M;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    BroadcastReceiver myreciever=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int y=intent.getIntExtra("level",0);
+            ProgressBar prog=(ProgressBar)findViewById(R.id.progressbar);
+            prog.setProgress(y);
+            TextView view=(TextView)findViewById(R.id.edittextprogressbar);
+            view.setText("Battery level is :"+ Integer.toString(y)+"%");
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        registerReceiver(myreciever,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
 
         setContentView(R.layout.activity_main);
