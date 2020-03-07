@@ -17,11 +17,13 @@ TextView textView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
         textView=findViewById(R.id.textV);
+
         btn=(Button)findViewById(R.id.buttonc);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String text="";
+
                 try{
                     InputStream input=getAssets().open("CProgram.c");
                     int size=input.available();
@@ -29,11 +31,14 @@ TextView textView;
                     input.read(buffer);
                     input.close();
 
+                    text = new String(buffer);
+
                 }catch (Exception ex){
         ex.printStackTrace();
 
                 }
                 textView.setText((CharSequence) text);
+
             }
         });
     }
