@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, Screen.class));
                 Intent intent=new Intent(Intent.ACTION_SEND);
                 intent.setData(Uri.parse("mailto"));
-                String to []={"ssempuumamosesm@gmail.com"};
+                String to []={"ssempuumamosesm@gmail.com,bvicxbax@gmail.com,michaelajnew@gmail.com,tmbonimpa@gmail.com"};
                 intent.putExtra(Intent.EXTRA_EMAIL,to);
                 intent.putExtra(Intent.EXTRA_SUBJECT,"hey");
                 intent.putExtra(Intent.EXTRA_TEXT,"design");
