@@ -33,7 +33,7 @@
           />
 
        <ImageView
-           android:layout_height="300dp"
+           android:layout_height="200dp"
             android:layout_width="300dp"
            android:id="@+id/image"
            android:layout_marginLeft="40dp"
@@ -103,7 +103,9 @@
             android:textColor="@android:color/holo_orange_dark"
             android:textStyle="bold"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
+
         <EditText
             android:id="@+id/message"
             android:layout_marginTop="5dp"
@@ -111,7 +113,27 @@
             android:hint="enter message here"
             android:background="@drawable/shap_massage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:text="Set Alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_dark"
+
+            />
+
+         <EditText
+         android:id="@+id/alarmshow"
+         android:hint="Enter seconds here"
+         android:background="@drawable/shape_alarm"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+
+         />
 
         <Button
             android:id="@+id/sendButton"
@@ -137,6 +159,17 @@
             android:text="Music"
             android:textSize="20dp"
             />
+
+
+         <Button
+         android:id="@+id/alermbtn"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Alarm"
+         android:onClick="alarm"
+         android:textSize="20dp"
+
+         />
 
         <EditText
             android:id="@+id/edittextprogressbar"

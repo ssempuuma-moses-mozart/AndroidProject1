@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.os.Build.VERSION_CODES.M;
 
@@ -130,5 +133,17 @@ public class MainActivity extends AppCompatActivity {
                 default:
                     return false;
         }
+    }
+    public void alarm(View view) {
+        EditText editText=(EditText)findViewById(R.id.alarmshow);
+        int i=Integer.parseInt(editText.getText().toString());
+        Intent intent=new Intent(getApplicationContext(),MyBroadCastReciever.class);
+        PendingIntent pendingIntent;
+        pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
+        Toast.makeText(this, "the time set was "+ i +" seconds", Toast.LENGTH_LONG).show();
+
+
     }
 }
