@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 intentDial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDial);
 
+
                 return true;
             case R.id.showgallery:
                 startActivity(new Intent(getApplicationContext(),UserRecycler.class));
@@ -130,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.show:
                 startActivity(new Intent(this, ListViewActivity.class));
                 return true;
+            case R.id.phone:
+                startActivity(new Intent(this,Display.class));
                 default:
                     return false;
         }
