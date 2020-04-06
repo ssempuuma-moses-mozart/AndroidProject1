@@ -68,4 +68,9 @@ public class Display extends AppCompatActivity {
         }
     }
 
+    public void cancel(View view) {
+
+        Intent intent= new Intent(getApplicationContext(),Display.class);
+        startActivity(intent);
+    }
 }

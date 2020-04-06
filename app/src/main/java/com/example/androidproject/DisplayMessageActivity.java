@@ -16,11 +16,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();String message = intent.getStringExtra("MESSAGE");
         TextView messageView =(TextView)findViewById(R.id.sendButton);	messageView.setText(message);
-
-
        */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+
         Intent intent = getIntent();
         String message = intent.getStringExtra("MESSAGE");
         TextView messageView =	(TextView)findViewById(R.id.messageTextView);
