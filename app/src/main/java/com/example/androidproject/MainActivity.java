@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
 
 
         registerReceiver(myreciever,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
