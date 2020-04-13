@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
 
 
         registerReceiver(myreciever,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
@@ -143,14 +143,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void alarm(View view) {
-        EditText editText=(EditText)findViewById(R.id.alarmshow);
-        int i=Integer.parseInt(editText.getText().toString());
-        Intent intent=new Intent(getApplicationContext(),MyBroadCastReciever.class);
-        PendingIntent pendingIntent;
-        pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 0, intent, 0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
-        Toast.makeText(this, "the time set was "+ i +" seconds", Toast.LENGTH_LONG).show();
+
+
+            EditText editText = (EditText) findViewById(R.id.alarmshow);
+            int i = Integer.parseInt(editText.getText().toString());
+            Intent intent = new Intent(getApplicationContext(), MyBroadCastReciever.class);
+            PendingIntent pendingIntent;
+            pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 0, intent, 0);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
+            Toast.makeText(this, "the time set was " + i + " seconds", Toast.LENGTH_LONG).show();
 
 
     }
