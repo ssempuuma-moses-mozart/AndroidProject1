@@ -46,7 +46,7 @@
            android:layout_height="150dp"
             android:layout_width="300dp"
            android:id="@+id/image"
-           android:layout_marginTop="50dp"
+           android:layout_marginTop="25dp"
            android:background="@drawable/imagehint"
            android:textAlignment="center"
             android:layout_gravity="center"
@@ -62,28 +62,42 @@
             android:textAlignment="center"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:paddingTop="30dp"
-            android:layout_marginTop="55dp"
+            android:paddingTop="20dp"
+            android:layout_marginTop="25dp"
            />
 
-        <TextView
 
-            android:id="@+id/userne"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="UserName"
-            android:textStyle="bold"
-            android:textSize="25dp"
-           />
-        <EditText
-            android:id="@+id/uname"
-            android:layout_marginTop="5dp"
-            android:inputType="text"
-            android:hint="enter username here"
-            android:background="@drawable/shap_uname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
 
+        >
+
+     <TextView
+
+         android:id="@+id/userne"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="UserName"
+         android:textStyle="bold"
+         android:textSize="25dp"
+         android:layout_marginTop="20dp"
+         />
+     <EditText
+         android:id="@+id/uname"
+         android:layout_marginTop="5dp"
+         android:inputType="text"
+         android:hint="enter username here"
+         android:background="@drawable/shap_uname"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+
+         />
         <TextView
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -91,7 +105,8 @@
             android:text="Password"
             android:textStyle="bold"
             android:textSize="25dp"
-             />
+            android:layout_marginTop="10dp"
+            />
 
         <EditText
             android:id="@+id/pward"
@@ -109,6 +124,7 @@
             android:text="@string/password"
             android:textStyle="bold"
             android:textSize="25dp"
+            android:layout_marginTop="10dp"
             />
 
 
@@ -117,6 +133,8 @@
             android:fontFamily="monospace"
             android:textColor="@android:color/holo_orange_dark"
             android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -125,7 +143,7 @@
             android:id="@+id/message"
             android:layout_marginTop="5dp"
             android:inputType="text"
-            android:hint="enter message here"
+            android:hint="enter sms here"
             android:background="@drawable/shap_massage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -139,69 +157,91 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
             android:textColor="@android:color/holo_orange_dark"
+
 
             />
 
-         <EditText
-         android:id="@+id/alarmshow"
-         android:hint="Enter seconds here"
-         android:background="@drawable/shape_alarm"
-         android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/alarmshow"
+            android:hint="Enter seconds here"
+            android:inputType="number"
+            android:background="@drawable/shape_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginTop="20dp"
+         >
+
+
+     <Button
+         android:id="@+id/sendButton"
+         android:text="SEND SMS"
+         android:onClick="sendMessage"
+         android:textSize="20dp"
+         android:textAllCaps="false"
+         android:layout_width="130dp"
+         android:layout_height="50dp"
+
 
          />
 
-        <Button
-            android:id="@+id/sendButton"
-            android:text="Send Message"
-            android:onClick="sendMessage"
-            android:textSize="20dp"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+     <Button
+         android:id="@+id/cprogrambtn"
+         android:layout_width="130dp"
+         android:layout_height="50dp"
+         android:text="C CODE"
+         android:textSize="20dp"
+         android:textAllCaps="false"
 
+         />
 
-
-            />
-
-        <Button
-            android:id="@+id/cprogrambtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="C Program"
-            android:textSize="20dp"
-            android:textAllCaps="false"
-
-            />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
             android:text="Music"
             android:textSize="20dp"
 
 
             />
 
+        <Button
+            android:id="@+id/alermbtn"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Alarm"
+            android:onClick="alarm"
+            android:textSize="20dp"
+            android:layout_gravity="center"
 
-         <Button
-         android:id="@+id/alermbtn"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:text="Alarm"
-         android:onClick="alarm"
-         android:textSize="20dp"
-             android:layout_gravity="center"
+            />
 
-         />
+
+
+
+    </LinearLayout>
+
 
         <TextView
             android:id="@+id/edittextprogressbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="broadcast message"
+            android:layout_marginTop="20dp"
             />
 
         <ProgressBar
@@ -212,11 +252,6 @@
             />
 
     </LinearLayout>
-
-
-
-
-
 
 
 

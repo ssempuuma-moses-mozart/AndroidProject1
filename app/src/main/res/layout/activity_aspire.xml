@@ -8,13 +8,15 @@
     tools:context=".Aspire">
 
 
+
     <ImageView
         android:layout_width="280dp"
         android:layout_height="200dp"
-        android:paddingTop="45dp"
+        android:paddingTop="25dp"
         android:background="@drawable/imagemusic"
 
         />
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -30,7 +30,10 @@ import android.widget.Toast;
 
 import static android.os.Build.VERSION_CODES.M;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
 
 
     BroadcastReceiver myreciever=new BroadcastReceiver() {
@@ -144,6 +147,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void alarm(View view) {
 
+        EditText check=(EditText) findViewById(R.id.alarmshow);
+        String ck=check.getText().toString();
+        if(ck.isEmpty()){
+
+            Toast.makeText(this,"set alarm first",Toast.LENGTH_SHORT).show();
+        }else {
 
             EditText editText = (EditText) findViewById(R.id.alarmshow);
             int i = Integer.parseInt(editText.getText().toString());
@@ -154,6 +163,6 @@ public class MainActivity extends AppCompatActivity {
             alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
             Toast.makeText(this, "the time set was " + i + " seconds", Toast.LENGTH_LONG).show();
 
-
+        }
     }
 }
