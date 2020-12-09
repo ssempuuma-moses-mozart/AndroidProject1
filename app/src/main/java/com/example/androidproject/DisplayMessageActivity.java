@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ import java.io.IOException;
 import static android.os.Build.VERSION_CODES.M;
 
 public class DisplayMessageActivity extends AppCompatActivity {
-
+    Button close;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       /*  super.onCreate(savedInstanceState);
@@ -46,6 +47,16 @@ public class DisplayMessageActivity extends AppCompatActivity {
         String message = intent.getStringExtra("MESSAGE");
         TextView messageView =	(TextView)findViewById(R.id.messageTextView);
         messageView.setText(message);
+
+        close = findViewById(R.id.closeButton);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DisplayMessageActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void onClose(View view) {
