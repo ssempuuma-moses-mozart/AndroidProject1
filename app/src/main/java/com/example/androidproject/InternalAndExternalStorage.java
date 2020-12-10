@@ -49,7 +49,7 @@ public class InternalAndExternalStorage extends AppCompatActivity {
         filename="myFile.text";
         filepath="MyFileDir";
         if(isExternalStorageAvailableForRW()){
-            btnsave.setEnabled(false);
+            btnsave.setEnabled(true);
         }
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
