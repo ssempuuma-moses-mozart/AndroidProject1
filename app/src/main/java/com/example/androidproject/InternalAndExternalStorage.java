@@ -14,14 +14,26 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class InternalAndExternalStorage extends AppCompatActivity {
     EditText etname;
     Button btcreate,btopen;
     String name;
+    Button btnsave, btnload;
+    EditText etinput;
+    TextView tvload;
+    String filename="";
+    String filepath="";
+    String filecontent="";
 
 
     @Override
@@ -29,6 +41,68 @@ public class InternalAndExternalStorage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internal_and_external_storage);
 
+
+        btnsave=findViewById(R.id.btnsave);
+        btnload=findViewById(R.id.btnload);
+        etinput=findViewById(R.id.etinput);
+        tvload=findViewById(R.id.tvload);
+        filename="myFile.text";
+        filepath="MyFileDir";
+        if(isExternalStorageAvailableForRW()){
+            btnsave.setEnabled(false);
+        }
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvload.setText("");
+                filecontent=etinput.getText().toString().trim();
+                if (!filecontent.equals("")){
+                    File myExternalFile=new File(getExternalFilesDir(filepath),filename);
+                    FileOutputStream fos=null;
+                    try {
+                        fos=new FileOutputStream(myExternalFile);
+                        fos.write(filecontent.getBytes());
+                    }catch (FileNotFoundException e){
+                        e.printStackTrace();
+
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                    etinput.setText("");
+                    Toast.makeText(getApplicationContext(),"information saved on the sd card",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Text field can't be empty",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FileReader fr=null;
+                File myExternalfile = new File(getExternalFilesDir(filepath), filename);
+                StringBuilder stringBuilder =new StringBuilder();
+                try{
+                    fr= new FileReader(myExternalfile);
+                    BufferedReader br=new BufferedReader(fr);
+                    String line=br.readLine();
+                    while (line != null){
+                        stringBuilder.append(line).append('\n');
+                        line= br.readLine();
+                    }
+
+                }catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }finally {
+                    String fileContents="File contents \n" + stringBuilder.toString();
+                    tvload.setText(fileContents);
+
+                }
+
+            }
+        });
         etname=findViewById(R.id.etname);
         btcreate=findViewById(R.id.btcreate);
         btopen=findViewById(R.id.btopen);
@@ -63,6 +137,14 @@ public class InternalAndExternalStorage extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_GET_CONTENT).setDataAndType(uri,"*/*"));
             }
         });
+    }
+
+    private boolean isExternalStorageAvailableForRW() {
+        String extStorageState= Environment.getExternalStorageState();
+        if (extStorageState.equals(Environment.MEDIA_MOUNTED)){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -128,6 +210,7 @@ public class InternalAndExternalStorage extends AppCompatActivity {
 //            }
 //        }
     }
+
 }
 
 
