@@ -34,14 +34,10 @@ public class InternalAndExternalStorage extends AppCompatActivity {
     String filename="";
     String filepath="";
     String filecontent="";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internal_and_external_storage);
-
-
         btnsave=findViewById(R.id.btnsave);
         btnload=findViewById(R.id.btnload);
         etinput=findViewById(R.id.etinput);
