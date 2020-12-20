@@ -210,6 +210,11 @@ public class InternalAndExternalStorage extends AppCompatActivity {
         Intent intent=new Intent(InternalAndExternalStorage.this,ForegroundServiceActivity.class);
         startActivity(intent);
     }
+
+    public void gotpsqlite(View view) {
+        Intent intent= new Intent(InternalAndExternalStorage.this,SQLiteActivity.class);
+        startActivity(intent);
+    }
 }
 
 
