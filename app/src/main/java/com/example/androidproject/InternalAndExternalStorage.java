@@ -215,6 +215,11 @@ public class InternalAndExternalStorage extends AppCompatActivity {
         Intent intent= new Intent(InternalAndExternalStorage.this,SQLiteActivity.class);
         startActivity(intent);
     }
+
+    public void contentprovide(View view) {
+        Intent intent=new Intent(InternalAndExternalStorage.this,ContentProviderActivity.class);
+        startActivity(intent);
+    }
 }
 
 

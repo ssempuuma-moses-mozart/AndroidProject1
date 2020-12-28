@@ -101,4 +101,9 @@ public class LoginActivity extends AppCompatActivity {
 
         progressDialog =new ProgressDialog(this);
     }
+
+    public void just(View view) {
+        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
 }

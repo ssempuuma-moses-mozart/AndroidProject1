@@ -28,7 +28,7 @@ public class MyService extends Service {
             return null;
     }
     private Notification updateNotification() {
-        counter++;
+        counter ++;
         String info = counter + "";
 
         Context context = getApplicationContext();
